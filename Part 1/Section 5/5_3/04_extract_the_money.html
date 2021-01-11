@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<script>
+    function extractCurrencyValue(str) {
+        // let numLong;
+        // let num;
+
+        // Look for first number
+        for (let i = 0; i < str.length; i++) {
+             if ( isFinite(str.charAt(i)) ) {
+                 num = str.slice(i);
+                 break;
+             }
+         }
+
+        // for (let i = 0; i < numLong.length; i++) {
+        //     if ( !isFinite(numLong.charAt(i)) ) {
+        //         num = numLong.slice(0, i);
+        //     } else if ( isFinite(numLong.charAt(numLong.length)) ) {
+        //         num = numLong;
+        //     }
+        // }
+
+        return parseFloat(num);
+        // parseFloat and parseInt only works when the first character in a string is a number
+
+        // Look for last instance of the number
+    }
+
+    alert( extractCurrencyValue('$120.345$') );
+
+    alert( extractCurrencyValue('$120') === 120 ); // true
+</script>

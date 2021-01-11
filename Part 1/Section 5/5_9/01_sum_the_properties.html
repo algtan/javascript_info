@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<script>
+    function sumSalaries(salaries) {
+        let salariesArr = Object.values(salaries);
+
+        let sum = 0;
+
+        for (let i = 0; i < salariesArr.length; i++) {
+            sum += Number(salariesArr[i]);
+        }
+
+        return sum;
+    }
+
+    let salaries = {
+        "John": 100,
+        "Pete": 300,
+        "Mary": 250
+    };
+
+    alert( sumSalaries(salaries) ); // 650
+</script>

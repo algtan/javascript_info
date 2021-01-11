@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<script>
+    let arr = ["a", "b"];
+
+    arr.push(function() {
+        alert( this );
+    })
+
+    arr[2]();   //  a,b,(function() {
+                //          alert( this );
+                //      }
+
+    // arr[2]() runs the function in arr[2], which is alert( this )
+    // alert( this ) is the same thing as 'alert( arr )'
+</script>

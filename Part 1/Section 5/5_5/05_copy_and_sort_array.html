@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<script>
+    function copySorted(arr) {
+        
+        // Create a copy of the array using `slice()`
+        // Then sort the array using `sort()`
+        let arrSorted = arr.slice().sort();
+
+        return arrSorted;
+    }
+
+    let arr = ["HTML", "JavaScript", "CSS"];
+
+    let sorted = copySorted(arr);
+
+    alert( sorted ); // CSS, HTML, JavaScript
+    alert( arr ); // HTML, JavaScript, CSS (no changes)
+</script>

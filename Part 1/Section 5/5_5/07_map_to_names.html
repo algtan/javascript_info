@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<script>
+    let john = { name: "John", age: 25 };
+    let pete = { name: "Pete", age: 30 };
+    let mary = { name: "Mary", age: 28 };
+
+    let users = [ john, pete, mary ];
+
+    // Convert array of user objects to an array of names using a for loop
+    // let names = [];
+
+    // for (let i = 0; i < users.length; i++) {
+    //     names[i] = users[i].name;
+    // }
+
+    // Convert array of user objects to an array of names using map
+    let names = users.map(user => user.name);
+
+    alert( names ); // John, Pete, Mary
+</script>

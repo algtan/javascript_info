@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<script>
+    function getLastDayOfMonth(year, month) {
+        let longDate = new Date(year, month, 28);
+        let date = longDate.getDate();
+
+        while ( !(date == 1) ) {
+            longDate.setDate(longDate.getDate() + 1);
+            date = longDate.getDate();
+        }
+
+        // Change date to the previous day
+        longDate.setDate(longDate.getDate() - 1);
+        return longDate.getDate();
+    }
+
+    alert( getLastDayOfMonth(2012, 1) ); // 29 (leap year, Feb)
+</script>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<script>
+    function getWeekDay(date) {
+        weekDayInt = date.getDay();
+        let weekDayShort = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+
+        return weekDayShort[weekDayInt];
+    }
+
+    let date =  new Date(2012, 0, 3);
+    alert( getWeekDay(date) );
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<script>
+    function Calculator() {
+        // `this.methods` is an object containing the key pairs to functions
+        this.methods = {
+            "+": (a, b) => a + b,
+        };
+
+        this.calculate = function(str) {
+            // Split the str into an array with ' ' (space) as the delimeter
+            let arr = str.split(' ');
+
+            // Store array elements into variables
+            let a = +arr[0];
+            let op = arr[1];
+            let b = +arr[2];
+
+            // Perform method
+            return this.methods[op](a, b);
+        }
+
+        // `this.addMethod` is used to add a key pair to the object `this.methods`
+        this.addMethod = function(operator, func) {
+            this.methods[operator] = func;
+        }
+    }
+
+    let calc = new Calculator;
+
+    alert( calc.calculate("3 + 7") );
+
+    let powerCalc = new Calculator;
+    powerCalc.addMethod("*", (a, b) => a * b);
+    powerCalc.addMethod("/", (a, b) => a / b);
+    powerCalc.addMethod("**", (a, b) => a ** b);
+
+    let result = powerCalc.calculate("2 ** 3");
+    alert( result ); // 8
+</script>

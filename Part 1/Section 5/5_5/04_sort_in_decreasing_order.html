@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<script>
+    let arr = [5, 2, 1, -10, 8];
+
+    // Function
+    // arr.sort(function(a, b) { return b - a; });
+
+    // Arrow function
+    arr.sort( (a, b) => b - a );
+    // a == current element (n)
+    // b == next element (n+1)
+    // if (b - a) is positive, then b > a, so swap a and b
+    // if (b - a) is zero, items are equal, and no need to swap
+    // if (b - a) is negative, then a > b, so no need to swap
+
+    alert( arr );
+</script>

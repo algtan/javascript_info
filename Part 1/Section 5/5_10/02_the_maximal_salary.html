@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<script>
+    function topSalary(obj) {
+        let max = 0;
+        let topSalesPerson;
+
+        for (let [key, value] of Object.entries(obj)) {
+            if (value > max) {
+                max = value;
+                topSalesPerson = key;
+            }
+        }
+
+        return topSalesPerson;
+    }
+
+    let salaries = {
+        "John": 100,
+        "Pete": 300,
+        "Mary": 250
+    };
+
+    alert( topSalary(salaries) );
+</script>

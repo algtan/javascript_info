@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<script>
+    function unique(arr) {
+          
+        // Initial solution to get the set
+        // let set = new Set();
+        // for (let i = 0; i < arr.length; i++) {
+        //     set.add(arr[i]);
+        // }
+
+        let set = new Set(arr);
+
+        let newArr = [];
+
+        for (let entry of set) {
+            newArr.push(entry);
+        }
+
+        return newArr;
+    }
+
+    let values = ["Hare", "Krishna", "Hare", "Krishna",
+        "Krishna", "Krishna", "Hare", "Hare", ":-O"
+    ];
+
+    alert( unique(values) ); // Hare, Krishna, :-O
+</script>

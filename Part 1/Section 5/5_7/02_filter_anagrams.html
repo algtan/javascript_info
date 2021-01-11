@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<script>
+    function aclean(array) {
+        // Create a temporary array that copies the incoming array
+        let temp = array.slice();
+
+        // Create a map to capture a key value pair
+        // key is the item in the array
+        // value is a sorted, lowercase array
+        let map = new Map();
+
+        // For loop to iterate through the array
+        for (let i = 0; i < temp.length; i++) {
+            let value = temp[i].toLowerCase().split('').sort().join('');
+            map.set(temp[i], value);
+            // alert( ` ${i} ${temp[i]}: ${map.get(temp[i])}` );
+        }
+
+        // Create an inverted map where the key is the unique values
+        let invMap = new Map();
+        map.forEach( (mapValue, mapKey, map) => {
+            if ( !(invMap.has(mapValue)) ) {
+                invMap.set(mapValue, mapKey);
+            }
+        });
+
+        // Initial Solution
+        // Create an array that returns the new keys
+        // let newArr = [];
+
+        // invMap.forEach( (value, key, map) => {
+        //     newArr.push(value);;
+        // });
+
+        // return newArr;
+        
+        // 2nd Solution using Array.from
+        return Array.from(invMap.values());
+    }
+
+    let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+    alert( aclean(arr) ); // "nap,teachers,ear" or "PAN,cheaters,era"
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<script>
+    function getMaxSubSum( arr ) {
+        // Brute Force Solution (check every subarray)
+
+        // Variable to store Max value of subarray
+        // let subarrMax = 0;
+
+        // for (let i = 0; i < arr.length; i++) {
+        //     // Current subarray, need to reset it as we go through each index
+        //     let subarr = 0;
+
+        //     for (let j = i; j < arr.length; j++) {
+        //         // Starting from index i, keep adding the rest of the array
+        //         subarr += arr[j];
+
+        //         // Check if the subarray is greater than the global Max subarray
+        //         // If
+        //         if (subarr > subarrMax) {
+        //             subarrMax = subarr;
+        //         }
+        //     }
+        // }
+
+        // Kadane's Algorithm
+        
+        // Initiate variable to hold the global subarray Max
+        let subarrMax = arr[0];
+
+        // Initial array `subarray` to store the max subarray values at each index
+        let localMax = [arr[0]];
+
+        // We will go through each index and compare whether the max subarray
+        // is found at the previous index, or the current index
+
+        // We start at index 1 because subarr was already initiated at arr[0]
+        for (let i = 1; i < arr.length; i++) {
+            // Choose max using an if else loop
+            // if (arr[i] < localMax[i-1] + arr[i]) {
+            //     localMax[i] = localMax[i-1] + arr[i];
+            // } else {
+            //     localMax[i] = arr[i];
+            // }
+
+            // Choose max using Math object
+            localMax[i] = Math.max(localMax[i-1] + arr[i], arr[i]);
+
+            if (localMax[i] > subarrMax) {
+                subarrMax = localMax[i];
+            }
+
+            // alert( localMax );
+            // alert( subarrMax );
+        }
+
+        if (subarrMax < 0) {
+            return 0;
+        } else {
+            return subarrMax;
+        }
+    }
+
+    alert( getMaxSubSum([-1, 2, 3, -9]) ); // == 5 (the sum of highlighted items)
+    alert( getMaxSubSum([2, -1, 2, 3, -9]) ); // == 6
+    alert( getMaxSubSum([-1, 2, 3, -9, 11]) ); // == 11
+    alert( getMaxSubSum([-2, -1, 1, 2]) ); // == 3
+    alert( getMaxSubSum([100, -9, 2, -3, 5]) ); // == 100
+    alert( getMaxSubSum([1, 2, 3]) ); // == 6 (take all)
+    // If all items are negative, it means that we take none (the subarray is empty), so the sum is zero:
+
+    alert( getMaxSubSum([-1, -2, -3]) ); // = 0
+</script>

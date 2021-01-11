@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<script>
+    function shuffle(array) {
+        // Need to work backwards in the array in a for loop
+        for (let i = array.length - 1; i > 0; i--) {
+            // Store the initial value at that index in a temporarily variable
+            let temp = arr[i];
+
+            // Calculate a random index to swap with between 0 and the current index
+            let j = Math.floor(Math.random() * (i + 1));
+            // We need i + 1 because Math.random() will produce a decimal number between 0 and 1
+            // and we want to make sure we can get to include `i`
+            // (i is captured in this calculation through floor, which brings the number to the next smallest integer)
+
+            // Swap the current index with a random index
+            arr[i] = arr[j];
+
+            // We now need to put the initial value at index i to index j
+            arr[j] = temp;
+        }
+
+    }
+
+    let arr = [1, 2, 3, 4, 5];
+    alert( arr );
+
+    shuffle(arr);
+    alert( arr );
+
+    shuffle(arr);
+    alert( arr );
+
+    shuffle(arr);
+    alert( arr );
+</script>

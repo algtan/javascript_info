@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<script>
+    let schedule = {};
+
+    alert( isEmpty(schedule) ); // true
+
+    schedule["8:30"] = "get up";
+
+    alert( isEmpty(schedule) ); // false
+
+    function isEmpty(obj) {
+        let keys = 0;
+        let status = true;
+
+        for (key in obj) {
+            keys += 1;
+        }
+
+        if (keys > 0) {
+            status = false;
+        }
+
+        return status;
+    }
+</script>

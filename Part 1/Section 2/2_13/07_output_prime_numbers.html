@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<script>
+    let n = prompt("Enter 'n':", '10');
+
+    // My solution
+    // for (let i = 2; i <= n; i++) {
+    //     if (!(i > 3)) {
+    //         alert(i);
+    //     } else if (!(i % 2 == 0 || i % 3 == 0)) {
+    //         alert(i);
+    //     }
+    // }
+
+    // 2nd attempt
+    // outerLoop: for (let i = 2; i <= n; i++) {
+    //     for (let j = 2; j < i; j++ ) { // when j = 2, j !< i, so it alerts that 2 is a prime number
+    //         if (i % j == 0) {
+    //             continue outerLoop;
+    //         }
+    //     }
+
+    //     alert(i);
+    // }
+
+    // 3rd attempt
+    for (let i = 2; i <= n; i++) {
+        for (let j = 2; j <= i; j++) {
+            if (i == j) {
+                alert(i);
+            } else if (i % j == 0 ) {
+                break; // breaks out of nested for loop and continues through outer for loop
+            } else {
+                continue; // continues nested for loop for next iteration
+            }
+        }
+    }
+
+</script>

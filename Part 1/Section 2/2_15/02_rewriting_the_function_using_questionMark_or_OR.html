@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<script>
+    // function checkAge(age) {
+    //     if (age >= 18) {
+    //         return true;
+    //     } else {
+    //         return confirm('Did parents allow you?');
+    //     }
+    // }
+
+    // Using '?'
+    // function checkAge(age) {
+    //     let check = (age >= 18) ? true : confirm('Did your parents allow you?');
+    //     return check;
+    // }
+
+    // Using '||'
+    function checkAge(age) {
+        let check = (age >= 18) || confirm('Did your parents allow you?');
+        return check;
+    }
+
+    // The 'confirm' function returns a boolean result of 'true' or 'false'
+
+    let age = prompt('What is your age?', '');
+
+    alert( checkAge(age) );
+</script>

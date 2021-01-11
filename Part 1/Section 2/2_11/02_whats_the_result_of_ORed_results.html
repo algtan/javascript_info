@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+
+<script>
+    alert( alert(1) || 2 || alert(3) );
+    /* 'alert(1) is executed. But 'alert(1)' is undefined in the logical statement,
+    so the OR operand continues to look for a truthy,
+    which happens to be the next value which is '2'
+    */
+</script>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<script>
+    function getSecondsToday() {
+        // Create Date object to to the current time and day
+        let currentDate = new Date();
+
+        // Create Date object set to start of the day
+        let startDate = new Date();
+        startDate.setHours(0, 0, 0);
+
+        return (currentDate.getTime() - startDate.getTime()) / 1000;
+    }
+
+    alert( getSecondsToday() );
+
+</script>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<script>
+    function checkSpam(str) {
+        let lower_str = str.toLowerCase();
+
+        if (lower_str.includes('xxx') || lower_str.includes('viagra')) {
+            return true;
+        }
+
+        return false;
+    }
+
+    alert( checkSpam('buy ViAgRA now') ); // true
+    alert( checkSpam('free xxxxx') ); // true
+    alert( checkSpam("innocent rabbit") ); // false
+</script>

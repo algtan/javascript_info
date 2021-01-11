@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- Repeat until the input is a number -->
+
+<script>
+    function readNumber() {
+        let num;
+
+        do {
+            num = +prompt(`Enter a number`, ``);
+        } while ( !isFinite(num) );
+        // } while ( !(typeof num === "number") );
+        // Using typeof will not work as if a string is inputted,
+        // the +prompt will convert it to NaN, which is considered a number
+
+        if (num === "null" || num === "") {
+            return null;
+        }
+
+        return +num;
+    }
+
+    let input = readNumber();
+
+    alert( input );
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<script>
+    function pow(x, n) {
+        let result = x;
+
+        for (let i = 1; i < n; i++) {
+            // result = result * x;
+            result *= x; // shorthand for result = result * x
+        }
+
+        return result;
+    }
+
+    let xInput = prompt('What is "x?"', '');
+    let nInput = prompt('What is "n"?', '');
+    
+    if (!(nInput >= 1 )) {
+        alert( `Input of ${nInput} is not a valid exponent`);
+    } else {
+        alert( pow( xInput, nInput ) );
+    }
+
+</script>

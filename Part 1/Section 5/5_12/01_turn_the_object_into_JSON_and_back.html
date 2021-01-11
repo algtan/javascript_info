@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<script>
+    let user = {
+        name: "John Smith",
+        age: 35
+    };
+
+    // Convert object into JSON
+    let json = JSON.stringify(user);
+
+    // Convert back to another variable
+    let user2 = JSON.parse(json);
+
+    // Solution from JavaScript.info
+    //let user2 = JSON.parse(JSON.stringify(user));
+
+    alert( user2 );
+</script>

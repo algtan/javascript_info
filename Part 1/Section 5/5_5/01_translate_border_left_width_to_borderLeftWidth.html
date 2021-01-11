@@ -1,0 +1,28 @@
+<!DOCTYPE>
+
+<script>
+    function camelize(str) {
+        // Split the string into an array using the `str.split` method
+        let arr = str.split('-');
+
+        // Capitalize the letters for items in the array whose index is > 0
+        // to get the camel case
+        
+        // For loop
+        // for (let i = 1; i < arr.length; i++) {
+        //     arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
+        // }
+
+        // arr.map
+        arr = arr.map( (item, index) => index > 0 ? item[0].toUpperCase() + item.slice(1) : item );
+
+        // Join the array back into a string
+        return arr.join('');
+    }
+
+    alert( camelize("background-color") );
+    alert( camelize("list-style-image") );
+    alert( camelize("-webkit-transition") );
+
+
+</script>

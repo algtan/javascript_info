@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<script>
+    function getAverageAge(users) {
+        // Create an array of the ages
+        let ages = users.map(user => +user.age);
+
+        // Initiate a variable to hold the sum of all the ages
+        let sumAges;
+
+        // Calculate the sum of all the ages using a for loop
+        for (let i = 0; i < ages.length; i++) {
+            sumAges += ages[i];
+        }
+
+        // Calculate the average of the ages
+        return sumAges / ages.length;
+    }
+
+    let john = { name: "John", age: 25 };
+    let pete = { name: "Pete", age: 30 };
+    let mary = { name: "Mary", age: 29 };
+
+    let arr = [ john, pete, mary ];
+
+    alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+
+</script>

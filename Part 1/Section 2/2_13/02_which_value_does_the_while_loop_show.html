@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<script>
+    let i = 0;
+    while (++i < 5) alert( i );
+    // last alert will be '4'
+
+    let j = 0;
+    while (j++ < 5) alert( j );
+    /* last alert will be '5' as it will use the previous value of 'j' for the condition (4 < 5 which is true)
+    but the alert function will use the current value of 'j', which is '5'
+    */
+</script>

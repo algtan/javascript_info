@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<script>
+    let i = 0;
+    while (i < 11) {
+        i += 0.2;
+        if (i > 9.8 && i < 10.2) alert( i );
+        // 9.999999999999996
+        // 10.199999999999996
+    }
+    // 0.2 is not precise because of how decimals are stored in binary
+    // So as 0.2 is continually added, it never reaches exactly '10'
+</script>

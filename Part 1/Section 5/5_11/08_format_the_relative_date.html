@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<script>
+    function formatDate(date) {
+        let now = new Date();
+
+        let str;
+
+        if ( (now - date) / 1000 < 1 ) {
+            str = "right now";
+        } else if ( (now - date) / 1000 < 60 ) {
+            str = `${Math.round((now - date) / 1000)} sec. ago`;
+        } else if ( (now - date) / 1000 / 60 / 60 < 1) {
+            str = `${Math.round((now - date) / 1000 / 60)} min. ago`;
+        } else {
+            // Change year format to 2 digits
+            year = date.getFullYear().toString().substr(2,2);
+
+            // Change month format to 2 digits
+            month = date.getMonth() + 1;
+            if (month.toString().length < 2) {
+                month = '0' + month;
+            }
+
+            // Change date format to 2 digits
+            day = date.getDate();
+            if (day.toString().length < 2) {
+                day = '0' + day;
+            }
+
+            // Formatted date
+            str = `${day}.${month}.${year} ${date.getHours()}:${date.getMinutes()}`;
+        }
+
+        return str;
+    }
+
+    alert( formatDate(new Date(new Date - 1)) ); // "right now"
+
+    alert( formatDate(new Date(new Date - 30 * 1000)) ); // "30 sec. ago"
+
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5 min. ago"
+
+    // yesterday's date like 31.12.16 20:00
+    alert( formatDate(new Date(new Date - 86400 * 1000)) );
+</script>

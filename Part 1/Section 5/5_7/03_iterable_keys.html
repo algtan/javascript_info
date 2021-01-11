@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<script>
+    // Original code from Task
+    // let map = new Map();
+
+    // map.set("name", "John");
+
+    // let keys = map.keys();
+
+    // // Error: keys.push is not a function
+    // keys.push("more");
+
+    let map = new Map();
+
+    map.set("name", "John");
+
+    // map.keys() returns an iterable, but not an array
+    // let keys = map.keys();
+
+    let keys = Array.from(map.keys());
+
+    keys.push("more");
+
+    alert( keys );
+</script>
