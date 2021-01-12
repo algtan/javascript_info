@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style>
+            #hour {
+            color: red
+            }
+
+            #min {
+            color: green
+            }
+
+            #sec {
+            color: blue
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="clock">
+            <span id="hour">hh</span>:<span id="min">mm</span>:<span id="sec">ss</span>
+        </div>
+
+        <!-- click on this button calls clockStart() -->
+        <input type="button" onclick="clockStart()" value="Start">
+
+        <!-- click on this button calls clockStop() -->
+        <input type="button" onclick="clockStop()" value="Stop">
+
+        <script>
+            // Create variable for a timer identifier that can be used to cancel
+            // the execution of the clock from updating
+            let timerId;
+            
+
+            function update() {
+                // Create variables that link to the clock HTML
+                hour = document.getElementById('hour');
+                min = document.getElementById('min');
+                sec = document.getElementById('sec');
+
+                // Create date object to get the current time
+                let date = new Date();
+
+                // Grab the current time from the date object
+                hours = date.getHours();
+                mins = date.getMinutes();
+                secs = date.getSeconds();
+
+                // Add a '0' to the time elements if they are single digits
+                if (hours < 10) {
+                    hours = '0' + hours;
+                }
+                if (mins < 10) {
+                    mins = '0' + mins;
+                }
+                if (secs < 10) {
+                    secs = '0' + secs;
+                }
+
+                // Update the HTML elements to show the latest time
+                hour.innerHTML = hours;
+                min.innerHTML = mins;
+                sec.innerHTML = secs;
+            }
+
+            function clockStart() {
+                // Ensure that there is only 1 interval running by checking if timerId already
+                // contains something inside it
+                if (!timerId) {
+                    // Run the function 'update()' every 1000 ms
+                    timerId = setInterval( () => update(), 1000 );
+                }
+
+                // Run update() so that the uesr does not have to wait until the next interval
+                // for the time to update
+                update();
+            }
+
+            function clockStop() {
+                // Cancel the execution of setInterval
+                clearTimeout(timerId);
+                // 'clearTimeout' does not make 'timerId' null, so we need to do that manually
+                timerId = null;
+            }
+
+            // Begin by having the clock running
+            clockStart();
+        </script>
+    </body>
+</html>

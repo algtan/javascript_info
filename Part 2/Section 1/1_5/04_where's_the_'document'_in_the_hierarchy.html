@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<body>
+    <script>
+        // 1) Which class does the document belong to?
+        // Answer: HTMLDocument
+        alert( document ); // returns '[object HTMLDocument]'
+
+        // 2) What's its place in the DOM hierarchy?
+        // Answer: Node -> Document -> HTMLDocument
+        alert(HTMLDocument.prototype.constructor.name); // HTMLDocument
+        alert(HTMLDocument.prototype.__proto__.constructor.name); // Document is the [[Prototype]] of HTMLDocument
+        alert(HTMLDocument.prototype.__proto__.__proto__.constructor.name); // Node is the [[Prototype]] of Document
+
+        // 3) Does it inherit from 'Node' or 'Element', or maybe 'HTMLElement'?
+        // Answer: It inhereits from 'Node'
+    </script>
+</body>
+    

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<script>
+    let head = {
+        glasses: 1
+    };
+
+    let table = {
+        pen: 3,
+        __proto__: head
+    };
+
+    let bed = {
+        sheet: 1,
+        pillow: 2,
+        __proto__: table
+    };
+
+    let pockets = {
+        money: 2000,
+        __proto__: bed
+    };
+
+    // Which is the faster method to get 'glasses': pockets.glasses or head.glasses?
+    // I assume head.glasses
+
+    // According to the solution, there's no difference whether we take a property
+    // from an object or its prototype. The modern engines remember where the proeprty
+    // was found and reuse it in the next request.
+</script>

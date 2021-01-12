@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<script>
+    function makeCounter() {
+
+        function counter() {
+            return counter.count++;
+        };
+
+        counter.count = 0;
+
+        counter.set = function(num) {
+            counter.count = num;
+        };
+
+        counter.decrease = function() {
+            counter.count--;
+        }
+
+        return counter;
+    }
+
+    let counter = makeCounter();
+
+    counter.count = 10;
+    alert( counter() ); // 10
+
+    counter.set(20);
+    alert( counter() );
+
+    counter.decrease();
+    alert( counter() );
+</script>

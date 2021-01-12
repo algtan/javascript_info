@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<script>
+    function Rabbit() {}
+    Rabbit.prototype = {
+        eats: true
+    };
+
+    let rabbit = new Rabbit();
+
+    delete Rabbit.prototype.eats;
+
+    alert( rabbit.eats ); // undefined
+
+    // It shows as undefined because the property 'eats' no longer exists
+</script>

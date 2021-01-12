@@ -1,0 +1,40 @@
+<!DOCTYPE>
+
+<script>
+    let worker = {
+        slow(min, max) {
+            alert(`Called with ${min},${max}`);
+            return min + max;
+        }
+    };
+
+    function cachingDecorator(func, hash) {
+        let cache = new Map();
+        return function(arg1, arg2) {
+            let key = hash(arguments); // (*)
+            if (cache.has(key)) {
+                return cache.get(key);
+            }
+
+            let result = func.call(this, ...arguments); // (**)
+
+            alert( key );
+
+            cache.set(key, result);
+            return result;
+        };
+    }
+
+    function hash(args) {
+        return args[0] + ',' + args[1];
+    }
+
+    function test(args) {
+        return args[1] + ',' + args[0];
+    }
+
+    worker.slow = cachingDecorator(worker.slow, test);
+
+    alert( worker.slow(3, 5) ); // works
+    alert( "Again " + worker.slow(3, 5) ); // same (cached)
+</script>

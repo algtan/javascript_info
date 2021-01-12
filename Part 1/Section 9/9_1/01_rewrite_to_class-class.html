@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<script>
+    class Clock {
+        // Need to add a constructor function for the class
+        constructor({ template }) {
+            this.template = template;
+        }
+
+        // function render() becomes render()
+        render() {
+            let date = new Date();
+
+            let hours = date.getHours();
+            if (hours < 10) hours = '0' + hours;
+
+            let mins = date.getMinutes();
+            if (mins < 10) mins = '0' + mins;
+
+            let secs = date.getSeconds();
+            if (secs < 10) secs = '0' + secs;
+
+            let output = template
+                .replace('h', hours)
+                .replace('m', mins)
+                .replace('s', secs);
+
+            console.log(output);
+        }
+
+        // this.stop becomes stop()
+        stop() {
+            clearInterval(timer);
+        };
+
+        // this.start = start()
+        start() {
+            // We need to refer to the render function inside the clock class
+            // so render() becomes this.render()
+            this.render();
+            // We'll need to create a property 'timer' inside the clock class.
+            // We don't need to initiate it outside, so we'll change
+            // timer to this.timer
+            this.timer = setInterval(render, 1000);
+        };
+
+    }
+
+    let clock = new Clock({template: 'h:m:s'});
+    clock.start();
+
+</script>

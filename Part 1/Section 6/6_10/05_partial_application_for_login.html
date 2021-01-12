@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<script>
+    function askPassword(ok, fail) {
+        let password = prompt("Password?", '');
+        if (password == "rockstar") ok();
+        else fail();
+    }
+
+    let user = {
+        name: 'John',
+
+        login(result) {
+            alert( this.name + (result ? ' logged in' : ' failed to log in') );
+        }
+    };
+
+    askPassword(user.login.bind(user, true), user.login.bind(user, false));
+
+    // For 'askPassword,' we want to set up the function to run when the password matches -> ok()
+    // and the function to run when the password fails -> fail()
+
+    // In this case, we want to run 'login(result)'
+    // When 'result' is true, it will say '[NAME] logged in'
+    // and when 'result' is false, it will say '[NAME] failed to log in'
+</script>

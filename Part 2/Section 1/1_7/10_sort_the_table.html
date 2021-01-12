@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<table id="table">
+    <thead>
+        <tr>
+            <th>Name</th><th>Surname</th><th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John</td><td>Smith</td><td>10</td>
+        </tr>
+        <tr>
+            <td>Pete</td><td>Brown</td><td>15</td>
+        </tr>
+        <tr>
+            <td>Ann</td><td>Lee</td><td>5</td>
+        </tr>
+        <tr>
+            <td>...</td><td>...</td><td>...</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    // Grab the rows from the table inside the first (and only) 'tbody' tag into an array
+    let rowsArray = Array.from(table.tBodies[0].rows);
+    
+    // Sort the array alphabetically based on what's in cells[0], which is the 'Name' tag
+    // rowA is row[i] and rowB is row[i+1]
+    // The method 'localeCompare()' takes into consideration letters with diacritical marks
+    sortedRows = rowsArray.sort( (rowA, rowB) => rowA.cells[0].innerHTML.localeCompare(rowB.cells[0].innerHTML) );
+
+    // After 2 seconds, append the sorted rows into the table
+    setTimeout( () => table.tBodies[0].append(...sortedRows), 2000);
+</script>

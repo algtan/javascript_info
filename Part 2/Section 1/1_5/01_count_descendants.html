@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+  <ul>
+    <li>Animals
+      <ul>
+        <li>Mammals
+          <ul>
+            <li>Cows</li>
+            <li>Donkeys</li>
+            <li>Dogs</li>
+            <li>Tigers</li>
+          </ul>
+        </li>
+        <li>Other
+          <ul>
+            <li>Snakes</li>
+            <li>Birds</li>
+            <li>Lizards</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Fishes
+      <ul>
+        <li>Aquarium
+          <ul>
+            <li>Guppy</li>
+            <li>Angelfish</li>
+          </ul>
+        </li>
+        <li>Sea
+          <ul>
+            <li>Sea trout</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    // Grab all the 'li' tags
+    listItems = document.querySelectorAll('li');
+
+    // The first childNode of each 'li' tag will be a text node with the list item's first list of text
+    for (let listItem of listItems) {
+        let text = listItem.firstChild.data;
+        // Remove the whitespace from the text using 'String.trim()'
+        text = text.trim();
+        // Count the number of 'li' tags within each list item
+        let numOfDescendants = listItem.getElementsByTagName('li').length;
+        // Alert the information to the user
+        alert( `${text}: ${numOfDescendants}` );
+    }
+  </script>
+
+</body>
+</html>

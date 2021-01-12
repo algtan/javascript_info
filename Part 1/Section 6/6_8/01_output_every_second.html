@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<script>
+    // Using setInterval
+    // function printNumbers(from, to) {
+    //     // Create a variable that will store the current number, starting from 'from'
+    //     let current = from;
+
+    //     let timerId = setInterval(function() {
+    //         alert(current)
+
+    //         // Once we reach 'to', stop further calls to the setInterval
+    //         if (current == to) {
+    //             clearInterval(timerId);
+    //         }
+
+    //         // Increment current
+    //         current++;
+    //     }, 1000);
+    // }
+
+    // Using setTimeout
+    function printNumbers(from, to) {
+        let current = from;
+
+        // The outer setTimeout sets the delay before the first run
+        setTimeout(function go() {
+            alert(current);
+            if (current <= to) {
+                // The inner setTimeout sets the delay between subsequent runs
+                setTimeout(go, 1000);
+            }
+            current++;
+        }, 1000);
+
+        ++current;
+    }
+
+    printNumbers(5, 10);
+</script>

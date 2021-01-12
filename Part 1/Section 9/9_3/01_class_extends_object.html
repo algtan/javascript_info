@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<script>
+    // class Rabbit
+    // class Rabbit {
+
+    // class Rabbit extends
+    class Rabbit extends Object {
+
+        constructor(name) {
+            // Need to call 'super()', otherwise you will receive the following error:
+            // "Must call super constructor in derived class before accessing 'this'
+            // or returning from derived constructor"
+            super();
+            this.name = name;
+        }
+    }
+
+    let rabbit = new Rabbit("Rab");
+
+    // hasOwnProperty method is from Object.prototype
+    alert( rabbit.hasOwnProperty('name') ); // true
+</script>

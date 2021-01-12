@@ -1,0 +1,15 @@
+<div id="elem1"></div>
+<div id="elem2"></div>
+<div id="elem3"></div>
+<script>
+  let text = '<b>text</b>';
+
+  elem1.append(document.createTextNode(text));
+  // Line 7 will create a Text Node without the formatting and place it before </div>
+  // (append will place it at the end of the element)
+  elem2.innerHTML = text;
+  // Line 10 will insert <b>text</b> between the <div> tags,
+  // so the HTML tags will be included
+  elem3.textContent = text;
+  // Line 13 will insert the text 'as text'
+</script>

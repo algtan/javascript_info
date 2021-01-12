@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<script>
+    // Task: Implement the 'debounce' decorator
+
+    function debounce(func, ms) {
+        // The decorator will take the function, and delay it. So we will need to use 'setTimeout'
+        // We should only get the arguments of the last call, and the previous calls should be ignored
+
+        // Set up a variable to store the setTimeout function so that it can be cancelled as needed
+        // using 'clearTimeout'
+        let timerId;
+        
+        // Wrapper function
+        return function() {
+            // Cancel previous execution of 'setTimeout'
+            clearTimeout(timerId);
+            // Execute setTimeout
+            timerId = setTimeout( () => func.apply(this, arguments), ms);
+        }
+    }    
+</script>

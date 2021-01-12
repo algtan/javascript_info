@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <div id="tree"></div>
+
+  <!-- The result should be:
+<div id="tree">
+<ul>
+  <li>Fish
+    <ul>
+      <li>trout</li>
+      <li>salmon</li>
+    </ul>
+  </li>
+  <li>Trees
+    <ul>
+      <li>Huge
+        <ul>
+          <li>sequoia</li>
+          <li>oak</li>
+        </ul>
+      </li>
+      <li>Flowering
+        <ul>
+          <li>apple tree</li>
+          <li>magnolia</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
+-->
+
+  <script>
+    let data = {
+      "Fish": {
+        "trout": {},
+        "salmon": {}
+      },
+
+      "Tree": {
+        "Huge": {
+          "sequoia": {},
+          "oak": {}
+        },
+        "Flowering": {
+          "apple tree": {},
+          "magnolia": {}
+        }
+      }
+    };
+
+    function createTree(container, data) {
+      // Create an unordered list
+      let unorderedList = document.createElement('ul');
+      // Append unordered list to the container
+      container.append(unorderedList);
+
+      // For loop to create list items from object's keys
+      for (let key in data) {
+          // Create list item
+          let listItem = document.createElement('li');
+          // Insert key into list item as the text content
+          listItem.textContent = key;
+          // Append list item to the unordered list
+          unorderedList.append(listItem);
+
+          // If conditional to recursively run through createTree if object has nested objects.
+          // data[key] will go into the object 'data' and return the contents of the key 'key'.
+          // If the contents are another object with its own set of keys, its length will be
+          // greater than zero, so we need to create a nested unordered list
+          if (Object.keys(data[key]).length) {
+            createTree(listItem, data[key]);
+          }
+      }
+    }
+
+    createTree(document.getElementById('tree'), data);
+  </script>
+
+</body>
+</html>

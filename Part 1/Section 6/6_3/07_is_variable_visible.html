@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<script>
+    let x = 1;
+
+    function func() {
+
+        console.log(x); // ?
+
+        let x = 2;
+    }
+
+    func();
+    // The function 'func()' knows that 'x' is defined in its function block, but it hasn't been initialized yet
+    // If 'let x = 2' was not in the function block, the debugger would show '1'
+    // If 'let x = 2' was before 'console.log(x)', the debugger would show '2'
+</script>

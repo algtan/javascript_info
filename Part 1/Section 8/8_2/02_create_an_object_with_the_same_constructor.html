@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<script>
+    // Works
+    // function User(name) {
+    //     this.name = name;
+    // }
+
+    // let user = new User('John');
+    // let user2 = new user.constructor('Pete');
+
+    // alert( user2.name );
+
+    // Doesn't Work
+    function User(name) {
+        this.name = name;
+    }
+    // Here we overwrite 'User.prototype', which will instead reference
+    // it's prototype of 'Object.prototype'.
+    User.prototype = {};
+
+    let user = new User('John');
+    let user2 = new user.constructor('Pete');
+
+    alert( user2.name );
+</script>

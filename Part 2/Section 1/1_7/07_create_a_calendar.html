@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="calendar"></div>
+
+  <script>
+    function createCalendar(elem, year, month) {
+        // Create table element
+        let table = document.createElement('table'); 
+        // Append table element into 'elem'
+        elem.append(table);
+
+        // Create Header Row
+        createHeaderRow(table);
+
+        // Create Date object
+        // Month is zero-index, so Jan is 0, Feb is 1, etc.
+        let date = new Date(year, month-1);
+        
+        // Create another Date object to capture the start of a new month
+        let newMonth = new Date(year, month);
+
+        // While loop that will continue to run while date != newMonth
+        // We can check that by making suring newMonth - date isn't zero
+        while( newMonth - date ) {
+            // Create table row element
+            let row = document.createElement('tr');
+            // Append row to table
+            table.append(row);
+
+            // 'i' will be for the cell in the row (7 cells)
+            // 'j' will be for the day of the week
+            for (let i = 0; i < 7; i++) {
+                // Sunday is cell 7, but day 0
+                if (i == 6) {
+                    j = 0;
+                // The other days will be the cell number + 1
+                // Mon is cell 0/day 1, Tues is cell 1/day 2, ... , Sat is cell 6/day 7
+                } else {
+                    j = i+1;
+                }
+
+                // Create table data element
+                let td = document.createElement('td');
+                // If the date's day of the week matches the day of the cell,
+                // add the date to the cell
+                if ( j == date.getDay() ) {
+                    td.innerHTML = date.getDate();
+                    // Increment 'date' by 1 day
+                    date.setDate(date.getDate() + 1);
+                }
+                row.append(td);
+            }
+        }
+
+    }
+
+    function createHeaderRow(table) {
+        // Create table headers
+        let headerRow = document.createElement('tr');
+        // Append row inside of table
+        table.append(headerRow);
+        
+        let mo = document.createElement('th');
+        mo.innerHTML = 'MO';
+        headerRow.append(mo);
+
+        let tu = document.createElement('th');
+        tu.innerHTML = 'TU';
+        headerRow.append(tu);
+
+        let we = document.createElement('th');
+        we.innerHTML = 'WE';
+        headerRow.append(we);
+
+        let th = document.createElement('th');
+        th.innerHTML = 'TH';
+        headerRow.append(th);
+
+        let fr = document.createElement('th');
+        fr.innerHTML = 'FR';
+        headerRow.append(fr);
+
+        let sa = document.createElement('th');
+        sa.innerHTML = 'SA';
+        headerRow.append(sa);
+
+        let su = document.createElement('th');
+        su.innerHTML = 'SU';
+        headerRow.append(su);
+    }
+
+    createCalendar(calendar, 2021, 1);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<script>
+    function Rabbit() {}
+    Rabbit.prototype = {
+        eats: true
+    };
+
+    let rabbit = new Rabbit();
+
+    Rabbit.prototype.eats = false;
+
+    alert( rabbit.eats ); // false
+
+    // Objects are assigned by reference. The object from Rabbit.prototype is not duplicated,
+    // it's still a single object referenced both by Rabbit.protype and by the [[Prototype]]
+    // of rabit.
+
+    // So when we change its content through one reference, it is visible through the
+    // other one.
+</script>

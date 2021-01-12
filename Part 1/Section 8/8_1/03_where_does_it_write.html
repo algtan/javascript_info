@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<script>
+    let animal = {
+        eat() {
+            this.full = true;
+        }
+    };
+
+    let rabbit = {
+        __proto__: animal
+    };
+
+    rabbit.eat();
+
+    // Which object receives the 'full' property? 'animal' or 'rabbit'
+    // rabbit, because rabbit = this
+</script>

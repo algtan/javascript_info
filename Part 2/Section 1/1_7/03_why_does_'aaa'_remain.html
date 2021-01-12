@@ -1,0 +1,16 @@
+<table id="table">
+    aaa
+    <tr>
+      <td>Test</td>
+    </tr>
+  </table>
+  
+  <script>
+    alert(table); // the table, as it should be
+  
+    setTimeout( () => table.remove(), 2000);
+    // why there's still aaa in the document?
+    // Answer: The text node should not be after the <table> tag, so the HTML forces
+    // it to be before the <table> tag. When the table is removed, 'aaa' stays behind
+    // because it is not a part of the table
+  </script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<script>
+    function f(a) {
+        console.log(a);
+    }
+
+    function throttle(func, ms) {
+        function wrapper() {
+            if (wrapper.isThrottled) {
+                // Store 'arguments' and 'this' for 'setTimeout' when cooldown completes
+                wrapper.savedArgs = arguments;
+                wrapper.savedThis = this;
+                // Do not proceed because the cooldown is not yet complete
+                return;
+            }
+
+            // If there is no cooldown, run the function
+            func.apply(this, arguments);
+
+            // Set the 'isThrottled' status to true, showing that a cooldown is activated
+            wrapper.isThrottled = true;
+
+            // Use setTimeout to execute the cooldown
+            setTimeout( function() {
+                // Change status once cooldown is complete
+                wrapper.isThrottled = false;
+
+                // Check if there are arguments in queue due to the cooldown
+                if (wrapper.savedArgs) {
+                    // Recursively run through 'wrapper' because we want to initiate another cooldown if arguments were saved
+                    wrapper.apply(wrapper.savedThis, wrapper.savedArgs);
+                    // Remove the 'arguments' and 'this' so that the wrapper function doesn't continously run
+                    wrapper.savedArgs = wrapper.savedThis = null;
+                }
+            }, ms);
+        }
+
+        // Initiate the properties for 'wrapper'
+        wrapper.isThrottled = false;
+        wrapper.savedArgs = null;
+        wrapper.savedThis = null;
+
+        return wrapper;
+    }
+
+    // f1000 passes calls to f at maximum once per 1000 ms
+    let f1000 = throttle(f, 1000);
+
+    f1000(1); // shows 1
+    f1000(2); // (throttling, 1000ms not out yet)
+    f1000(3); // (throttling, 1000ms not out yet)
+
+    // when 1000 ms time out...
+    // ...outputs 3, intermediate value 2 was ignored
+</script>

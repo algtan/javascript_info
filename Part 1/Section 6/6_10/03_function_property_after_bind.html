@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<script>
+    function sayHi() {
+        alert( this.name );
+    }
+
+    sayHi.test = 5;
+
+    let bound = sayHi.bind({
+        name: "John"
+    });
+
+    alert( bound.test ); // undefined
+    alert( sayHi.test ); // 5
+    // When binding the object with the property "John" to sayHi, it creates a new object.
+    // The new object will not have the property "test," but the sayHi will have the
+    // property "test."
+</script>

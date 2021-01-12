@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<body>
+    <ul id='list'>
+    </ul>
+
+    <script>
+        // Look for the element with the id='list' and store it in a variable 'list'
+        let list = document.getElementById('list');
+
+        // Create a while loop that will continue to prompt the user for an item
+        // to add to the list
+        while (true) {
+            let text = prompt('What would you like to add to the list?');
+
+            // If there is a falsy input for text (user hits 'ESC' and presses the 'Cancel' button)
+            // break out of the while loop
+            if (!text) {
+                break;
+            }
+
+            // If the text is a truthy, then add it to the list
+            let listItem = document.createElement('li');
+            listItem.innerText = text;
+            list.append(listItem);
+        }
+    </script>
+</body>

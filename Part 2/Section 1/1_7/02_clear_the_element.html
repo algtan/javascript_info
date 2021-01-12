@@ -1,0 +1,16 @@
+<ol id="elem">
+    <li>Hello</li>
+    <li>World</li>
+  </ol>
+  
+  <script>
+    function clear(elem) {
+        // While the element still has a child
+        while (elem.firstChild) {
+            // Delete the first child
+            elem.firstChild.remove();
+        }
+     }
+  
+    setTimeout( () => clear(elem), 1000); // clears the list
+  </script>

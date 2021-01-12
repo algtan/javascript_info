@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<script>
+    function f(a, b) {
+        alert( a + b );
+    }
+
+    Function.prototype.defer = function(ms) {
+        function wrapper() {
+            setTimeout( wrapper.this, ms, ...arguments);
+        }
+
+        wrapper.this = this;
+
+        return wrapper;
+    }
+
+    f.defer(1000)(1, 2); // shows 3 after 1 second
+</script>

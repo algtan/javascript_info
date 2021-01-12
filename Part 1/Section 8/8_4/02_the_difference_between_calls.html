@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<script>
+    // Let's create a new 'rabbit' object
+    function Rabbit(name) {
+        this.name = name;
+    }
+    Rabbit.prototype.sayHi = function() {
+        alert( this.name );
+    };
+
+    /* default prototype
+    Rabbit.prototype = { constructor: Rabbit };
+    */
+
+    let rabbit = new Rabbit("White Rabbit");
+    // rabbit inherits [[Prototype]] from the function Rabbit, which is the default prototype, which is the same as Rabbit.prototype
+
+    // These calls do the same thing or not?
+    rabbit.sayHi(); // White Rabbit
+    Rabbit.prototype.sayHi(); // undefined because the property does not exist in the default "prototype"
+    Object.getPrototypeOf(rabbit).sayHi(); // undefined because the property does not exist in the default "prototype"
+    rabbit.__proto__.sayHi(); // undefined because the property does not exist in the default "prototype"
+</script>

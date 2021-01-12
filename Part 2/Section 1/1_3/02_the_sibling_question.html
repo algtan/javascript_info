@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<!--
+    If 'elem' - is an arbitrary DOM element node...
+    1) Is it true that 'elem.lastChild.nextSibling' is always 'null'?
+    TRUE
+    2) Is it true that 'elem.children[0].previousSibling' is always 'null'?
+    FALSE. children[0] will refer to the first ELEMENT, but not necessarily
+    the first node. The first node may be a text node, which occurs before
+    the first element.
+-->

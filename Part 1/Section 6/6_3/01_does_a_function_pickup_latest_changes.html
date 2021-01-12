@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<script>
+    let name = "John";
+
+    function sayHi() {
+        alert("Hi, " + name);
+    }
+
+    name = "Pete";
+
+    sayHi(); // what will it show: "John" or "Pete"?
+    // 'Hi, Pete' because the variable 'name' was set to 'Pete' prior to the function call
+</script>

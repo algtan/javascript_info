@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<script>
+    function f() {
+        alert( this ); // null
+    }
+
+    let user = {
+        g: f.bind(null)
+    };
+
+    user.g();
+
+    // What will be the output?
+    // this = null
+</script>

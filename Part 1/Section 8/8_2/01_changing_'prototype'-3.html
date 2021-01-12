@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<script>
+    function Rabbit() {}
+    Rabbit.prototype = {
+        eats: true
+    };
+
+    let rabbit = new Rabbit();
+
+    delete rabbit.eats;
+
+    alert( rabbit.eats ); // true
+
+    // The 'delete' operation will be applied directly to the object,
+    // in this case 'rabbit'. The object 'rabbit' does not have
+    // the 'eats' property, so nothing happens.
+</script>

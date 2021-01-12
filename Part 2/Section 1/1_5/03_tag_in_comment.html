@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<body>
+    <script>
+        let body = document.body;
+      
+        body.innerHTML = "<!--" + body.tagName + "-->";
+      
+        alert( body.firstChild.data ); // what's here?
+
+        // 'body.tagName' gets converted to 'BODY'
+        // The content of the 'body' tags is then a comment: <!--BODY-->
+        // The data within the firstChild, the comment, is whatever is between
+        // '<!--' and '-->', which is 'BODY'
+    </script>
+</body>

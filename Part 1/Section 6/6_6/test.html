@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<script>
+    function test() {
+        return 123;
+    }
+
+    let testObj = {test1: 'test01',
+                   test2: 'test02'}
+
+    // testObj.toString = function() {
+    //     return 'TEST OBJECT';
+    // }
+
+    testObj.toString = 'TEST';
+
+    console.log( test );
+    alert( test );
+
+    console.log( test() );
+    alert( test() );
+
+    console.log( testObj );
+    alert( testObj );
+</script>

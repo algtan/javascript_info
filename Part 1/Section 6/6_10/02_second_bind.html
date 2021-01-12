@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<script>
+    function f() {
+        alert(this.name);
+    }
+
+    f = f.bind( {name: "John"} ).bind( {name: "Ann" } );
+
+    f(); // John
+
+    // 'f' is first bound with the object with the key 'name' with the value 'John.'
+    // It cannot be re-bound, so even though we try to with 'Ann,'
+    // it will not work.
+</script>
